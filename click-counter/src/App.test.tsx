@@ -10,6 +10,11 @@ const setup = () => shallow(<App />);
 const findByTestAttribute = (wrapper: Enzyme.ShallowWrapper, value: string) =>
   wrapper.find(`[data-test='${value}']`);
 
+const isCounterDisplayingZero = (wrapper: Enzyme.ShallowWrapper) => {
+  const count = findByTestAttribute(wrapper, 'count').text();
+  return expect(count).toBe('0');
+};
+
 test('render without error', () => {
   const wrapper = setup();
   const appComponent = findByTestAttribute(wrapper, 'component-app');
@@ -24,8 +29,7 @@ test('render counter display', () => {
 
 test('counter starts at 0', () => {
   const wrapper = setup();
-  const count = findByTestAttribute(wrapper, 'count').text();
-  expect(count).toBe('0');
+  isCounterDisplayingZero(wrapper);
 });
 
 describe('Increment', () => {
@@ -89,7 +93,6 @@ describe('No count below 0', () => {
   });
 
   test('counter still displays 0', () => {
-    const count = findByTestAttribute(wrapper, 'count').text();
-    expect(count).toBe('0');
+    isCounterDisplayingZero(wrapper);
   });
 });
