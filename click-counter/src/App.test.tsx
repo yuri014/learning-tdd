@@ -74,6 +74,7 @@ describe('No count below 0', () => {
 
   test('error message is not displayed in the initial render', () => {
     const errorMessage = findByTestAttribute(wrapper, 'error-message');
-    expect(errorMessage.hasClass('hidden'));
+    const isNotDisplayed = errorMessage.hasClass('hidden');
+    expect(isNotDisplayed).toBe(true);
   });
 });
