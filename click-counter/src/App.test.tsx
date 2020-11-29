@@ -87,4 +87,9 @@ describe('No count below 0', () => {
     const isDisplayed = errorMessage.hasClass('error');
     expect(isDisplayed).toBeTruthy();
   });
+
+  test('counter still displays 0', () => {
+    const count = findByTestAttribute(wrapper, 'count').text();
+    expect(count).toBe('0');
+  });
 });
