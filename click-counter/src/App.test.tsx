@@ -7,7 +7,8 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 const setup = () => shallow(<App />);
 
-const findByTestAttribute = (wrapper: Enzyme.ShallowWrapper, value: string) => wrapper.find(`[data-test='${value}']`);
+const findByTestAttribute = (wrapper: Enzyme.ShallowWrapper, value: string) =>
+  wrapper.find(`[data-test='${value}']`);
 
 test('render without error', () => {
   const wrapper = setup();
@@ -69,5 +70,10 @@ describe('No count below 0', () => {
 
     const count = findByTestAttribute(wrapper, 'count').text();
     expect(count).toBe('0');
+  });
+
+  test('error message is not displayed in the initial render', () => {
+    const errorMessage = findByTestAttribute(wrapper, 'error-message');
+    expect(errorMessage.hasClass('hidden'));
   });
 });
