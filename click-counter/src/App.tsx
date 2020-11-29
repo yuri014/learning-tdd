@@ -17,7 +17,7 @@ function App() {
       </button>
       <button
         data-test='decrement-button'
-        onClick={() => (count > 0 && setCount(count - 1))}
+        onClick={() => (count > 0 ? setCount(count - 1) : setErrorMessage(true))}
       >
         Decrement counter
       </button>
