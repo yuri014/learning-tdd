@@ -59,3 +59,15 @@ describe('Decrement', () => {
     expect(count).toBe('0');
   });
 });
+
+describe('No count below 0', () => {
+  const wrapper = setup();
+
+  test('counter display do not go below 0', () => {
+    const decrementButton = findByTestAttribute(wrapper, 'decrement-button');
+    decrementButton.simulate('click');
+
+    const count = findByTestAttribute(wrapper, 'count').text();
+    expect(count).toBe('0');
+  });
+});
