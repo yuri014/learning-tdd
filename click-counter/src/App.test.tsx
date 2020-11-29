@@ -15,12 +15,6 @@ test('render without error', () => {
   expect(appComponent.length).toBe(1);
 });
 
-test('renders button', () => {
-  const wrapper = setup();
-  const button = findByTestAttribute(wrapper, 'increment-button');
-  expect(button.length).toBe(1);
-});
-
 test('render counter display', () => {
   const wrapper = setup();
   const counterDisplay = findByTestAttribute(wrapper, 'counter-display');
@@ -33,10 +27,33 @@ test('counter starts at 0', () => {
   expect(count).toBe('0');
 });
 
-test('clicking on button increments counter display', () => {
+describe('Increment', () => {
   const wrapper = setup();
   const button = findByTestAttribute(wrapper, 'increment-button');
-  button.simulate('click');
-  const count = findByTestAttribute(wrapper, 'count').text();
-  expect(count).toBe('1');
+  test('renders increment button', () => {
+    expect(button.length).toBe(1);
+  });
+
+  test('clicking on button increments counter display', () => {
+    button.simulate('click');
+    const count = findByTestAttribute(wrapper, 'count').text();
+    expect(count).toBe('1');
+  });
+});
+
+describe('Decrement', () => {
+  const wrapper = setup();
+  test('renders decrement button', () => {
+    const decrementButton = findByTestAttribute(wrapper, 'decrement-button');
+    expect(decrementButton.length).toBe(1);
+  });
+
+  test('clicking on button decrement counter display', () => {
+    const incrementButton = findByTestAttribute(wrapper, 'increment-button');
+    incrementButton.simulate('click');
+    const decrementButton = findByTestAttribute(wrapper, 'decrement-button');
+    decrementButton.simulate('click');
+    const count = findByTestAttribute(wrapper, 'count').text();
+    expect(count).toBe('0');
+  });
 });
