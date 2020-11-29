@@ -30,6 +30,7 @@ test('counter starts at 0', () => {
 describe('Increment', () => {
   const wrapper = setup();
   const button = findByTestAttribute(wrapper, 'increment-button');
+
   test('renders increment button', () => {
     expect(button.length).toBe(1);
   });
@@ -43,6 +44,7 @@ describe('Increment', () => {
 
 describe('Decrement', () => {
   const wrapper = setup();
+
   test('renders decrement button', () => {
     const decrementButton = findByTestAttribute(wrapper, 'decrement-button');
     expect(decrementButton.length).toBe(1);
