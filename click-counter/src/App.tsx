@@ -12,7 +12,13 @@ function App() {
       <p className={errorMessage ? 'error' : 'hidden'} data-test='error-message'>
         The counter can't go below zero!
       </p>
-      <button data-test='increment-button' onClick={() => setCount(count + 1)}>
+      <button
+        data-test='increment-button'
+        onClick={() => {
+          setCount(count + 1);
+          setErrorMessage(false);
+        }}
+      >
         Increment counter
       </button>
       <button
