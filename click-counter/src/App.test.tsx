@@ -95,4 +95,13 @@ describe('No count below 0', () => {
   test('counter still displays 0', () => {
     isCounterDisplayingZero(wrapper);
   });
+
+  test('increment button clears error message', () => {
+    const incrementButton = findByTestAttribute(wrapper, 'increment-button');
+    incrementButton.simulate('click');
+
+    const errorMessage = findByTestAttribute(wrapper, 'error-message');
+    const isNotDisplayed = errorMessage.hasClass('hidden');
+    expect(isNotDisplayed).toBeTruthy();
+  });
 });
