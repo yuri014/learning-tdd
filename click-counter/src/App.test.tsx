@@ -35,6 +35,8 @@ test('counter starts at 0', () => {
 
 test('clicking on button increments counter display', () => {
   const wrapper = setup();
-  const appComponent = wrapper.find("[data-test='component-app']");
-  expect(appComponent.length).toBe(1);
+  const button = findByTestAttribute(wrapper, 'increment-button');
+  button.simulate('click');
+  const count = findByTestAttribute(wrapper, 'count').text();
+  expect(count).toBe('1');
 });
