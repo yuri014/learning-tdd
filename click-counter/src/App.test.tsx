@@ -77,4 +77,12 @@ describe('No count below 0', () => {
     const isNotDisplayed = errorMessage.hasClass('hidden');
     expect(isNotDisplayed).toBeTruthy();
   });
+
+  test('error message is displayed when decremente button is clicked and count is 0', () => {
+    const decrementButton = findByTestAttribute(wrapper, 'decrement-button');
+    decrementButton.simulate('click');
+    const errorMessage = findByTestAttribute(wrapper, 'error-message');
+    const isDisplayed = errorMessage.hasClass('error');
+    expect(isDisplayed).toBeTruthy();
+  });
 });
