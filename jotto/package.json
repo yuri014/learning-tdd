@@ -25,8 +25,12 @@
     "react-test-renderer": "^17.0.1"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.16",
     "@types/react-test-renderer": "^17.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "prettier": "2.1.2"
   },
   "repository": {
