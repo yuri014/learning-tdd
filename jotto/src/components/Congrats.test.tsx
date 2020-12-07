@@ -7,10 +7,14 @@ import Congrats from './Congrats';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const setup = (props = {}) => shallow(<Congrats {...props} />);
+interface Props {
+  success: boolean;
+}
+
+const setup = (props: Props) => shallow(<Congrats {...props} />);
 
 test('renders without an error', () => {
-  const wrapper = setup();
+  const wrapper = setup({ success: false });
   const component = findByTestAttribute(wrapper, 'congrats-component');
   expect(component.length).toBe(1);
 });
