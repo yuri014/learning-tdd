@@ -1,10 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-interface Props {
-  success: boolean;
-}
-
-export default (props: Props) => (
+export default (props) => (
   <>
     {props.success ? (
       <div data-test="congrats-component">
