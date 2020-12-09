@@ -15,7 +15,7 @@ const setup = props => {
 };
 
 test('renders without an error', () => {
-  const wrapper = setup({ success: false });
+  const wrapper = setup();
   const component = findByTestAttribute(wrapper, 'congrats-component');
   expect(component.length).toBe(1);
 });
