@@ -12,19 +12,19 @@ const GuessedWords = props => {
     }
     return (
       <div data-test="guessed-words">
-        <h3>Guessed Words</h3>
-        <table>
+        <h3 className="text-center">Guessed Words</h3>
+        <table className="w-full sm:bg-white text-gray-900 rounded-lg overflow-hidden sm:shadow-lg my-5">
           <thead>
-            <tr>
-              <th>Guess</th>
-              <th>Matching Letter</th>
+            <tr className="flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+              <th className="p-3 text-left">Guess</th>
+              <th className="p-3 text-left">Matching Letter</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="flex-1 sm:flex-none">
             {props.guessedWords.map((word, index) => (
-              <tr data-test="guessed-word" key={index}>
-                <th>{word.guessedWord}</th>
-                <th>{word.letterMatchCount}</th>
+              <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0" data-test="guessed-word" key={index}>
+                <td className="border-grey-light border hover:bg-gray-100 p-3">{word.guessedWord}</td>
+                <td className="border-grey-light border hover:bg-gray-100 p-3 text-right">{word.letterMatchCount}</td>
               </tr>
             ))}
           </tbody>
