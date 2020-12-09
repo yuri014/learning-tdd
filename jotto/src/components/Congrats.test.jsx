@@ -7,7 +7,12 @@ import Congrats from './Congrats';
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
 
-const setup = props => shallow(<Congrats {...props} />);
+const defaultProps = { success: false };
+
+const setup = props => {
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<Congrats {...setupProps} />);
+};
 
 test('renders without an error', () => {
   const wrapper = setup({ success: false });
