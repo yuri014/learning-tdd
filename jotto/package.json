@@ -21,6 +21,7 @@
     "gatsby-plugin-typescript": "^2.8.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^17.0.1"
@@ -30,6 +31,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.16",
     "@types/react-test-renderer": "^17.0.0",
+    "check-prop-types": "^1.1.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "prettier": "2.1.2"
